@@ -1,6 +1,8 @@
 from flask import Flask
 from .core import db, guard
 from .helpers import register_blueprints
+from .settings import DevelopementConfig
+from .models import User
 
 import os
 
@@ -31,7 +33,7 @@ def create_app(package_name, package_path, settings_override=None,
     with app.app_context():
 
       # Initialize the flask-praetorian instance for the app
-      guard.init_app(app)
+      guard.init_app(app, User)
 
       # Registre all blueprints in the package_name
       register_blueprints(app, package_name, package_path)

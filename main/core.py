@@ -8,7 +8,6 @@ from flask import current_app
 from flask_sqlalchemy import SQLAlchemy
 from flask_praetorian import Praetorian
 
-
 import os
 
 #: Flask-SQLAlchemy extension instance
