@@ -13,7 +13,7 @@ class PodcastasJsonSerializer(JsonSerializer):
   __json_public__ = ['id', 'artistName', 'kind']
 
 
-class Podcasts(UserJsonSerializer, db.Model):
+class Podcasts(PodcastasJsonSerializer, db.Model):
   __tablename__ = 'podcasts'
 
   id = db.Column(db.String(256), primary_key=True)

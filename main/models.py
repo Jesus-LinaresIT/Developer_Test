@@ -6,3 +6,4 @@
 """
 
 from .users.models import *
+from .podcast.models import *

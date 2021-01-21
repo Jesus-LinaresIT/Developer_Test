@@ -34,7 +34,7 @@ class User(UserJsonSerializer, db.Model):
 
   @classmethod
   def lookup(cls, username):
-    return cls.query.filter(((cls.username == username) | (cls.email == username))).one_or_none()
+    return cls.query.filter(((cls.username == username))).one_or_none()
 
     #return cls.query.filter_by(username=username).one_or_none()
 
