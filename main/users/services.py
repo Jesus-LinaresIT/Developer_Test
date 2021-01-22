@@ -40,4 +40,6 @@ class UsersService(Service):
         new_user
     )}, 201
 
+    return ret
+
 users = UsersService()

@@ -1,8 +1,9 @@
 from flask import Flask
-from .core import db, guard
+from .core import db, guard, blacklist
 from .helpers import register_blueprints
 from .settings import DevelopementConfig
-from .models import User
+from .models import User, Token
+from flask_blacklist import is_blacklisted
 
 import os
 
@@ -32,8 +33,11 @@ def create_app(package_name, package_path, settings_override=None,
 
     with app.app_context():
 
+      # Initializes Blacklist_Token
+      blacklist.init_app(app, Token)
+
       # Initialize the flask-praetorian instance for the app
-      guard.init_app(app, User)
+      guard.init_app(app, User, is_blacklisted = is_blacklisted)
 
       # Registre all blueprints in the package_name
       register_blueprints(app, package_name, package_path)

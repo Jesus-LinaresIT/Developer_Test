@@ -6,4 +6,5 @@
 """
 
 from .users.models import *
+from .auth.models import Token
 from .podcast.models import *

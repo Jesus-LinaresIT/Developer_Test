@@ -7,6 +7,7 @@
 from flask import current_app
 from flask_sqlalchemy import SQLAlchemy
 from flask_praetorian import Praetorian
+from flask_blacklist import Blacklist
 
 import os
 
@@ -16,6 +17,8 @@ db = SQLAlchemy()
 #: Flask-Preatorian extension instance
 guard = Praetorian()
 
+# Flask-Blacklist extension instance
+blacklist = Blacklist()
 
 class AppError(Exception):
     """Base application error class."""
